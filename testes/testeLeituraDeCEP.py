@@ -13,7 +13,7 @@ cidades = []
 arquivo = os.path.abspath('').replace('testes', 'Bancos_de_Dados\\CNES_01_04_2020_banco_estab.xlsx')
 
 print('Lendo xlsx')
-ceps = pd.read_excel(arquivo, usecols = 'I')  #Só descomentar essa linha caso queira realmente carregar o xlsx na memória, pois demora um tempinho
+ceps = pd.read_excel(arquivo, usecols = 'I')  # Atenção, pode demorar algum tempo para ler tudo
 
 amostras = ceps.sample(10)
 chaves = amostras.CO_CEP.keys()
