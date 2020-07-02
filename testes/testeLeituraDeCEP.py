@@ -22,7 +22,7 @@ chaves = amostras.CO_CEP.keys()
 # O loop a baixo pega os endereços de cada cep e os guarda
 for chave in chaves:
     cep = str(amostras.CO_CEP.get(chave))
-    while len(cep) < 8:
+    while len(cep) < 8:  # CEPs antigos tem menos digitos, esse loop corrige isso atualizando eles para 8 digitos
         cep = '0' + cep
     endereços.append(pycep.get_address_from_cep(cep))
 
