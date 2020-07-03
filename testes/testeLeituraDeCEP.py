@@ -5,15 +5,15 @@ import os.path
 
 
 # Váriaveis soltas
-endereços = []
+enderecos = []
 cidades = []
 
 
 #A linha a baixo encontra o arquivo na pasta em que ele está, indepente do computador
-arquivo = os.path.abspath('').replace('testes', 'Bancos_de_Dados\\CNES_01_04_2020_banco_estab.xlsx')
+arquivo = os.path.abspath('').replace('testes', 'Bancos_de_dados\CNES_01_04_2020_banco_estab.xlsx')
 
 print('Lendo xlsx')
-ceps = pd.read_excel(arquivo, usecols = 'I')  # Atenção, pode demorar algum tempo para ler tudo
+ceps = pd.read_excel(arquivo, usecols = ['CO_CEP'])  # Atenção, pode demorar algum tempo para ler tudo
 
 amostras = ceps.sample(10)
 chaves = amostras.CO_CEP.keys()
@@ -24,11 +24,11 @@ for chave in chaves:
     cep = str(amostras.CO_CEP.get(chave))
     while len(cep) < 8:  # CEPs antigos tem menos digitos, esse loop corrige isso atualizando eles para 8 digitos
         cep = '0' + cep
-    endereços.append(pycep.get_address_from_cep(cep))
+    enderecos.append(pycep.get_address_from_cep(cep))
 
 
 # O loop a baixo pega as cidades de cada endereço e as guarda
-for endereço in endereços:
-    cidades.append(endereço['cidade'])
+for endereco in enderecos:
+    cidades.append(endereco['cidade'])
 
 print(cidades)
