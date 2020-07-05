@@ -4,14 +4,12 @@ Uma análise sobre a distribuição de estabelecimentos de saúde públicos e pr
 ## Requirements
 - Python 3.0 (at least)
 - Pandas
-- PyCEPCorreios
 - Matplotlib
 
 ### How to install requirements
 First of all set your python to PATH, and then:
 
 - pip install pandas
-- pip install pycep-correios
 - pip install matplotlib
 
 ## Authors
